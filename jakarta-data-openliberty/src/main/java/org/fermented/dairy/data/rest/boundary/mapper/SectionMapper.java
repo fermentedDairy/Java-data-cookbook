@@ -10,9 +10,10 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.CDI, uses = {BookstoreMapper.class})
 public interface SectionMapper {
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "bookstore", ignore = true)
+    @Mapping(target = "bookstoreId", ignore = true)
     Section toEntity(SectionRequestRto sectionRequestRto);
 
+    @Mapping(target = "bookstore", ignore = true)
     SectionRto toRto(Section section);
 
 }

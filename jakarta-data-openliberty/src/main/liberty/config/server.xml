@@ -40,4 +40,6 @@
 
     <databaseStore id="defaultDatabaseStore" createTables="false" dropTables="false"
                    tablePrefix="" dataSourceRef="psDB"/>
+
+    <logging  traceSpecification="eclipselink=all" />
 </server>

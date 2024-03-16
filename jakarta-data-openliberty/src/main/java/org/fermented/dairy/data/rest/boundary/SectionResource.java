@@ -10,13 +10,15 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.fermented.dairy.data.rest.boundary.mapper.SectionMapper;
 import org.fermented.dairy.data.rest.boundary.rto.CreateResponse;
 import org.fermented.dairy.data.rest.boundary.rto.SectionRequestRto;
 import org.fermented.dairy.data.rest.boundary.rto.SectionRto;
 import org.fermented.dairy.data.rest.entity.BookstoreRepository;
 import org.fermented.dairy.data.rest.entity.SectionRepository;
-import org.fermented.dairy.data.rest.entity.jpa.Bookstore;
 import org.fermented.dairy.data.rest.entity.jpa.Section;
 
 import java.util.List;
@@ -24,6 +26,7 @@ import java.util.UUID;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 @Path("/bookstores/{bookstoreId}/sections")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,21 +35,21 @@ public class SectionResource {
     public static final Supplier<NotFoundException> SECTION_NOT_FOUND = () -> new NotFoundException("Section not found");
     public static final Supplier<NotFoundException> CANNOT_FIND_PARENT_BOOKSTORE = () -> new NotFoundException("Cannot find parent bookstore");
 
-    @PathParam("bookstoreId")
+    @Setter(onMethod = @__({@PathParam("bookstoreId")}))
     private UUID bookstoreId;
 
-    @Inject
-    private SectionRepository sectionRepository;
+    @NonNull
+    private final SectionRepository sectionRepository;
 
-    @Inject
-    private BookstoreRepository bookstoreRepository;
+    @NonNull
+    private final BookstoreRepository bookstoreRepository;
 
-    @Inject
-    private SectionMapper sectionMapper;
+    @NonNull
+    private final SectionMapper sectionMapper;
 
     @GET
     public List<SectionRto> getSections(){
-        try (Stream<Section> sections = sectionRepository.findByBookstore_id(bookstoreId)) {
+        try (Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
             return sections.map(sectionMapper::toRto).toList();
         }
     }
@@ -54,24 +57,25 @@ public class SectionResource {
     @GET
     @Path("{sectionId}")
     public SectionRto getSection(@PathParam("sectionId") UUID sectionId){
-        return sectionRepository.findById(sectionId)
-                .filter(section -> bookstoreId.equals(section.getBookstore().getId()))
+        return sectionRepository
+                .findById(sectionId)
+                .filter(section -> bookstoreId.equals(section.getBookstoreId()))
                 .map(sectionMapper::toRto)
                 .orElseThrow(SECTION_NOT_FOUND);
     }
 
     @POST
     public CreateResponse<UUID> createSection(SectionRequestRto sectionRequestRto) {
-        final Bookstore bookstore = bookstoreRepository.findById(bookstoreId)
-                .orElseThrow(CANNOT_FIND_PARENT_BOOKSTORE);
+        if (!bookstoreRepository.existsById(bookstoreId))
+                throw CANNOT_FIND_PARENT_BOOKSTORE.get();
+
         final UUID sectionUUID = UUID.randomUUID();
-        bookstore.addSection(
-                sectionMapper.toEntity(sectionRequestRto)
-                        .toBuilder()
-                        .id(sectionUUID)
-                        .build()
-        );
-        bookstoreRepository.save(bookstore);
+
+        sectionRepository.save(sectionMapper.toEntity(sectionRequestRto)
+                .toBuilder()
+                .id(sectionUUID)
+                .bookstoreId(bookstoreId)
+                .build());
         return new CreateResponse<>(sectionUUID);
     }
 

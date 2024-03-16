@@ -1,10 +1,7 @@
 package org.fermented.dairy.data.rest.entity.jpa;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -25,19 +21,11 @@ public class Bookstore {
 
     @Id
     @Builder.Default
-    UUID id = UUID.randomUUID();
+    private UUID id = UUID.randomUUID();
 
-    String name;
+    private String name;
 
-    String address;
-
-    @OneToMany(mappedBy = "bookstore", cascade= CascadeType.ALL)
-    private Set<Section> sections;
-
-    public void addSection(Section section) {
-        sections.add(section);
-        section.setBookstore(this);
-    }
+    private String address;
 
     @Override
     public final boolean equals(final Object o) {

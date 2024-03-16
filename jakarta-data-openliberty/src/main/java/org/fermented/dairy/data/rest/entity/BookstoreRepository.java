@@ -8,4 +8,7 @@ import java.util.UUID;
 
 @Repository
 public interface BookstoreRepository extends CrudRepository<Bookstore, UUID> {
+    //findAll generates SELECT ID, ADDRESS, NAME FROM Bookstore
+    //findbyId generates SELECT ID, ADDRESS, NAME FROM Bookstore WHERE (ID = ?)
+    //save generates INSERT INTO Bookstore (ID, ADDRESS, NAME) VALUES (?, ?, ?)
 }

@@ -9,13 +9,21 @@ import org.fermented.dairy.data.rest.entity.jpa.Section;
 import java.util.UUID;
 import java.util.stream.Stream;
 
+
 @Repository
 public interface SectionRepository extends CrudRepository<Section, UUID> {
+    /*
+    findById issue: https://github.com/OpenLiberty/open-liberty/issues/27925
+     */
 
+
+    //Generates SELECT ID, bookstore_id, name, non_fiction FROM Section WHERE (bookstore_id = ?)
     @Query("""
-            SELECT Section s where s.bookstore.id = :bookstoreId
+            SELECT s from Section s where s.bookstoreId = :bookstoreId
             """)
     Stream<Section> findByBookstoreJPQL(@Param("bookstoreId") UUID bookstoreId);
 
-    Stream<Section> findByBookstore_id(@Param("bookstoreId") UUID bookstoreId);//NOSONAR: naming convention for proxy generation
+    //generates SELECT ID, bookstore_id, name, non_fiction FROM Section WHERE (bookstore_id = ?)
+    Stream<Section> findByBookstoreId(@Param("bookstoreId") UUID bookstoreId);
+
 }
