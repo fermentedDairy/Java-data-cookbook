@@ -41,5 +41,5 @@
     <databaseStore id="defaultDatabaseStore" createTables="false" dropTables="false"
                    tablePrefix="" dataSourceRef="psDB"/>
 
-    <logging  traceSpecification="eclipselink=all" />
+    <logging  traceSpecification="eclipselink=all:io.openliberty.data.internal.persistence.RepositoryImpl=all" />
 </server>

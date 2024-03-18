@@ -2,13 +2,16 @@ package org.fermented.dairy.data.rest.entity.jpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -26,6 +29,9 @@ public class Bookstore {
     private String name;
 
     private String address;
+
+    @OneToMany(mappedBy = "bookstore")
+    private Set<Staff> staff = new LinkedHashSet<>();
 
     @Override
     public final boolean equals(final Object o) {

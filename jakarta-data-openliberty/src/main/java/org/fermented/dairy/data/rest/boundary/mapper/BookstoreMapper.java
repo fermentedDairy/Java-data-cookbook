@@ -10,9 +10,9 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.CDI)
 public interface BookstoreMapper {
 
+    @Mapping(target = "staff", ignore = true)
     @Mapping(target = "id", ignore = true)
     Bookstore toEntity(BookstoreRequestRto bookstoreRequestRto);
 
     BookstoreRto toRto(Bookstore bookstore);
-
 }

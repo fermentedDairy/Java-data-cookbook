@@ -24,7 +24,6 @@ public class Section {
     @Builder.Default
     private UUID id = UUID.randomUUID();
 
-    @Column(name = "name")
     private String name;
 
     @Column(name = "non_fiction")

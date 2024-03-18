@@ -15,7 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class BookstoreRto implements Serializable {
-    private final UUID id;
-    private final String name;
-    private final String address;
+    private UUID id;
+    private String name;
+    private String address;
 }
