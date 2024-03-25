@@ -9,12 +9,12 @@
         <feature>restfulWS-3.1</feature>
         <feature>mpOpenAPI-3.1</feature>
         <feature>jsonb-3.0</feature>
+        <feature>mpHealth-4.0</feature>
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint id="defaultHttpEndpoint"
-                  httpPort="9080"
-                  httpsPort="9443" />
+                  httpPort="9080"/>
 
     <!-- Automatically expand WAR files and EAR files -->
     <applicationManager autoExpand="true"/>
@@ -29,13 +29,18 @@
         <fileset dir="jdbc" includes="*.jar"/>
     </library>
 
+    <variable name="db.server.name" defaultValue="localhost" />
+    <variable name="db.server.port" defaultValue="5432" />
+    <variable name="db.server.username" defaultValue="postgres" />
+    <variable name="db.server.password" defaultValue="testPassword" />
+
     <dataSource id="psDB" name="psDB" jndiName="jdbc/psDB">
         <jdbcDriver libraryRef="jdbcLib"/>
-        <properties.postgresql serverName="localhost"
-                               portNumber="5432"
+        <properties.postgresql serverName="${db.server.name}"
+                               portNumber="${db.server.port}"
                                databaseName="postgres"
-                               user="postgres"
-                               password="testPassword"/>
+                               user="${db.server.username}"
+                               password="${db.server.password}"/>
     </dataSource>
 
     <databaseStore id="defaultDatabaseStore" createTables="false" dropTables="false"

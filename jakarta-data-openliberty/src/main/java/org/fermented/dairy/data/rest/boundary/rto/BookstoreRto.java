@@ -2,18 +2,16 @@ package org.fermented.dairy.data.rest.boundary.rto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.UUID;
 
-@Builder
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
-@Getter
-@Setter
+@Data
 public class BookstoreRto implements Serializable {
     private UUID id;
     private String name;

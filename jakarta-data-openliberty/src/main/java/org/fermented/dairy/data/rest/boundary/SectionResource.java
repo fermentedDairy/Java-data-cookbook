@@ -2,6 +2,7 @@ package org.fermented.dairy.data.rest.boundary;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.POST;
@@ -13,6 +14,7 @@ import jakarta.ws.rs.core.MediaType;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.fermented.dairy.data.rest.boundary.mapper.BookstoreMapper;
 import org.fermented.dairy.data.rest.boundary.mapper.SectionMapper;
 import org.fermented.dairy.data.rest.boundary.rto.CreateResponse;
 import org.fermented.dairy.data.rest.boundary.rto.SectionRequestRto;
@@ -47,10 +49,15 @@ public class SectionResource {
     @NonNull
     private final SectionMapper sectionMapper;
 
+    @NonNull
+    private final BookstoreMapper bookstoreMapper;
+
     @GET
     public List<SectionRto> getSections(){
         try (Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
-            return sections.map(sectionMapper::toRto).toList();
+            return sections.map(section -> sectionMapper.toRto(section,
+                    bookstoreMapper.toRto(bookstoreRepository.findById(bookstoreId).get()))
+            ).toList();
         }
     }
 
@@ -60,7 +67,9 @@ public class SectionResource {
         return sectionRepository
                 .findById(sectionId)
                 .filter(section -> bookstoreId.equals(section.getBookstoreId()))
-                .map(sectionMapper::toRto)
+                .map(section -> sectionMapper.toRto(section,
+                                bookstoreMapper.toRto(bookstoreRepository.findById(bookstoreId).get()))
+                )
                 .orElseThrow(SECTION_NOT_FOUND);
     }
 
@@ -95,5 +104,12 @@ public class SectionResource {
                                     ).orElseThrow(SECTION_NOT_FOUND)
                     ).getId()
             );
+    }
+
+    @DELETE
+    @Path("{sectionId}")
+    public CreateResponse<UUID> deleteBookstore(@PathParam("sectionId") UUID sectionId){
+        sectionRepository.deleteById(sectionId);
+        return new CreateResponse<>(sectionId);
     }
 }

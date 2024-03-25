@@ -2,6 +2,7 @@ package org.fermented.dairy.data.rest.boundary;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.POST;
@@ -42,7 +43,7 @@ public class BookstoreResource {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("{id}")
     public BookstoreRto getBookStore(@PathParam("id") UUID id) {
         return bookstoreRepository.findById(id)
                 .map(bookstoreMapper::toRto)
@@ -75,5 +76,12 @@ public class BookstoreResource {
                                 .build()
                 ).getId()
         );
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public CreateResponse<UUID> deleteBookstore(@PathParam("id") UUID id){
+        bookstoreRepository.deleteById(id);
+        return new CreateResponse<>(id);
     }
 }

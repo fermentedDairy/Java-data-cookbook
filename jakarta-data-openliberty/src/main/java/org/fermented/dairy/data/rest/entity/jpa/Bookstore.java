@@ -31,6 +31,7 @@ public class Bookstore {
     private String address;
 
     @OneToMany(mappedBy = "bookstore")
+    @Builder.Default
     private Set<Staff> staff = new LinkedHashSet<>();
 
     @Override
