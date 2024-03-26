@@ -92,6 +92,12 @@
             <artifactId>jpa-entities</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.fermented.dairy.data</groupId>
+            <artifactId>integration-tests</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -119,8 +125,9 @@
             <version>2.0.12</version>
         </dependency>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
+            <groupId>org.fermented.dairy.data</groupId>
+            <artifactId>rest-boundary-entities</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

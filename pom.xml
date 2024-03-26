@@ -20,6 +20,8 @@
         <module>jakarta-data-openliberty</module>
         <module>flyway-migrations</module>
         <module>jpa-entities</module>
+        <module>integration-tests</module>
+        <module>rest-boundary-entities</module>
     </modules>
 
     <dependencyManagement>
