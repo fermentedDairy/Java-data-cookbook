@@ -18,6 +18,8 @@
 
     <modules>
         <module>jakarta-data-openliberty</module>
+        <module>flyway-migrations</module>
+        <module>jpa-entities</module>
     </modules>
 
     <dependencyManagement>

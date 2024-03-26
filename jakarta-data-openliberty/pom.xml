@@ -82,7 +82,16 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.17.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.fermented.dairy.data</groupId>
+            <artifactId>flyway-migrations</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.fermented.dairy.data</groupId>
+            <artifactId>jpa-entities</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
