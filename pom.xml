@@ -18,6 +18,7 @@
 
     <modules>
         <module>jakarta-data-openliberty</module>
+        <module>jakarta-jpa-openliberty</module>
         <module>flyway-migrations</module>
         <module>jpa-entities</module>
         <module>integration-tests</module>
