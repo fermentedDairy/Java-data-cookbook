@@ -14,8 +14,8 @@ public class FlywayMigrator {
     @Resource(name = "jdbc/psDB")
     DataSource dataSource;
 
-    public void postConstruct(@Observes @Initialized(ApplicationScoped.class) Object o) {
-        Flyway flyway = new Flyway(Flyway.configure().dataSource(dataSource));
+    public void postConstruct(@Observes @Initialized(ApplicationScoped.class) final Object o) {
+        final Flyway flyway = new Flyway(Flyway.configure().dataSource(dataSource));
         flyway.migrate();
 
     }

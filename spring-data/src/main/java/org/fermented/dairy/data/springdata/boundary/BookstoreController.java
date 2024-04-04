@@ -38,7 +38,7 @@ public class BookstoreController {
     }
 
     @GetMapping("/{id}")
-    public BookstoreRto getBookStore(@PathVariable("id") UUID id) {
+    public BookstoreRto getBookStore(@PathVariable("id") final UUID id) {
         return bookstoreRepository.findById(id)
                 .map(bookstoreMapper::toRto)
                 .orElseThrow(BOOKSTORE_NOT_FOUND);
@@ -57,7 +57,7 @@ public class BookstoreController {
     }
 
     @PutMapping(value = "{bookstoreId}", consumes = "application/json", produces = "application/json")
-    public CreateResponse<UUID> updateBookstore(@PathVariable("bookstoreId") UUID bookstoreId,
+    public CreateResponse<UUID> updateBookstore(@PathVariable("bookstoreId") final UUID bookstoreId,
                                                 @RequestBody final BookstoreRequestRto bookstoreRequestRto
     ) {
         return new CreateResponse<>(
@@ -72,7 +72,7 @@ public class BookstoreController {
     }
 
     @DeleteMapping("/{id}")
-    public CreateResponse<UUID> deleteBookstore(@PathVariable("id") UUID id){
+    public CreateResponse<UUID> deleteBookstore(@PathVariable("id") final UUID id){
         bookstoreRepository.deleteById(id);
         return new CreateResponse<>(id);
     }

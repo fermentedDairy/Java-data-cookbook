@@ -36,8 +36,8 @@ public abstract class ITBase {
     @AfterEach
     void cleanup(){
 
-        for(Iterator<UUIDPair> it = sectionIds.iterator(); it.hasNext(); ) {
-            UUIDPair id = it.next();
+        for(final Iterator<UUIDPair> it = sectionIds.iterator(); it.hasNext(); ) {
+            final UUIDPair id = it.next();
             given()
                     .pathParams(Map.of(
                             "bookstoreID", id.left,
@@ -50,8 +50,8 @@ public abstract class ITBase {
             it.remove();
         }
 
-        for(Iterator<UUID> it = bookstoreIds.iterator(); it.hasNext(); ) {
-            UUID id = it.next();
+        for(final Iterator<UUID> it = bookstoreIds.iterator(); it.hasNext(); ) {
+            final UUID id = it.next();
             given()
                     .pathParams("bookstoreID", id)
                     .when()
@@ -64,8 +64,7 @@ public abstract class ITBase {
     }
 
     @Test
-    @DisplayName("""
-            Calls to health endpoints return 200""")
+    @DisplayName("Calls to health endpoints return 200")
     void healthEndpointReturn200() {
         when()
                 .get(healthUrl)
@@ -98,7 +97,7 @@ public abstract class ITBase {
 
 
         //edit bookstore
-        String id = given()
+        final String id = given()
                 .header("Content-type", "application/json")
                 .body(mapper.writeValueAsString(BookstoreRequestRto.builder()
                         .address(bookstore2.getAddress())
@@ -115,7 +114,7 @@ public abstract class ITBase {
 
         assertEquals(bookstore2.getId(), UUID.fromString(id), "Id is incorrect");
 
-        BookstoreRto editedBookstore = given()
+        final BookstoreRto editedBookstore = given()
                 .pathParam("bookstoreID", bookstore2.getId())
                 .when()
                 .get("/data/bookstores/{bookstoreID}")
@@ -171,7 +170,7 @@ public abstract class ITBase {
         assertEquals(List.of(section1, section2), sections, "Section list incorrect");
 
         //edit bookstore
-        String id = given()
+        final String id = given()
                 .header("Content-type", "application/json")
                 .body(mapper.writeValueAsString(SectionRto.builder()
                         .name(section1.getName() + " edited")
@@ -191,7 +190,7 @@ public abstract class ITBase {
 
         assertEquals(section1.getId(), UUID.fromString(id), "Id is incorrect");
 
-        SectionRto editedSection = given()
+        final SectionRto editedSection = given()
                 .pathParams(Map.of(
                         "bookstoreID", bookstore1.getId(),
                         "sectionId", section1.getId()
@@ -240,7 +239,7 @@ public abstract class ITBase {
                 .name(sectionRequestRto.getName())
                 .build();
 
-        SectionRto actual = given()
+        final SectionRto actual = given()
                 .pathParams(Map.of(
                         "bookstoreID", bookstore.getId(),
                         "sectionId", expected.getId()
@@ -264,7 +263,7 @@ public abstract class ITBase {
                 .address(address)
                 .build();
 
-        String id1 = given()
+        final String id1 = given()
                 .header("Content-type", "application/json")
                 .body(mapper.writeValueAsString(bookstoreRequest))
                 .when()
@@ -284,7 +283,7 @@ public abstract class ITBase {
 
         bookstoreIds.add(expected.getId());
 
-        BookstoreRto responseValue = given()
+        final BookstoreRto responseValue = given()
                 .pathParam("bookstoreID", expected.getId())
                 .when()
                 .get("/data/bookstores/{bookstoreID}")

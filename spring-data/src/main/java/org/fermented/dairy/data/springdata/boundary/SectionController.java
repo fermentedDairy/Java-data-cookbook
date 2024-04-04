@@ -51,7 +51,7 @@ public class SectionController {
     @GetMapping
     @Transactional(readOnly = true)
     public List<SectionRto> getSections(@PathVariable("bookstoreId") final UUID bookstoreId){
-        try (Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
+        try (final Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
             return sections.map(section -> sectionMapper.toRto(section,
                     bookstoreMapper.toRto(bookstoreRepository.findById(bookstoreId).orElseThrow(CANNOT_FIND_PARENT_BOOKSTORE)))
             ).toList();
@@ -60,7 +60,7 @@ public class SectionController {
 
     @GetMapping("{sectionId}")
     public SectionRto getSection( @PathVariable("bookstoreId") final UUID bookstoreId,
-                                  @PathVariable("sectionId") UUID sectionId){
+                                  @PathVariable("sectionId") final UUID sectionId){
         return sectionRepository
                 .findById(sectionId)
                 .filter(section -> bookstoreId.equals(section.getBookstoreId()))
@@ -87,7 +87,7 @@ public class SectionController {
     }
 
     @PutMapping("{sectionId}")
-    public CreateResponse<UUID> updateSection( @PathVariable("sectionId") UUID sectionId,
+    public CreateResponse<UUID> updateSection( @PathVariable("sectionId") final UUID sectionId,
                                                @RequestBody final SectionRequestRto sectionRequestRto  ) {
         return new CreateResponse<>(
                 sectionRepository.save(
@@ -104,7 +104,7 @@ public class SectionController {
     }
 
     @DeleteMapping("{sectionId}")
-    public CreateResponse<UUID> deleteBookstore( @PathVariable("sectionId") UUID sectionId){
+    public CreateResponse<UUID> deleteBookstore( @PathVariable("sectionId") final UUID sectionId){
         sectionRepository.deleteById(sectionId);
         return new CreateResponse<>(sectionId);
     }

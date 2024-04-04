@@ -46,14 +46,14 @@ public class StaffResource {
 
     @GET
     public List<StaffRto> getStaff() {
-        try (Stream<Staff> staff = staffRepository.findByBookstore_id(bookstoreId))
+        try (final Stream<Staff> staff = staffRepository.findByBookstore_id(bookstoreId))
         {
             return staff.map(staffMapper::toRto).toList();
         }
     }
 
     @POST
-    public CreateResponse<UUID> onboardStaff(StaffRequestRto staffRequestRto) {
+    public CreateResponse<UUID> onboardStaff(final StaffRequestRto staffRequestRto) {
         return new CreateResponse<>(
                 staffRepository.save(
                         staffMapper.toEntity(staffRequestRto)

@@ -44,7 +44,7 @@ public class BookstoreResource {
 
     @GET
     @Path("{id}")
-    public BookstoreRto getBookStore(@PathParam("id") UUID id) {
+    public BookstoreRto getBookStore(@PathParam("id") final UUID id) {
         return bookstoreRepository.findById(id)
                 .map(bookstoreMapper::toRto)
                 .orElseThrow(BOOKSTORE_NOT_FOUND);
@@ -64,7 +64,7 @@ public class BookstoreResource {
 
     @PUT
     @Path("{bookstoreId}")
-    public CreateResponse<UUID> updateBookstore(@PathParam("bookstoreId") UUID bookstoreId,
+    public CreateResponse<UUID> updateBookstore(@PathParam("bookstoreId") final UUID bookstoreId,
                                                 final BookstoreRequestRto bookstoreRequestRto
                                           ) {
         return new CreateResponse<>(
@@ -80,7 +80,7 @@ public class BookstoreResource {
 
     @DELETE
     @Path("/{id}")
-    public CreateResponse<UUID> deleteBookstore(@PathParam("id") UUID id){
+    public CreateResponse<UUID> deleteBookstore(@PathParam("id") final UUID id){
         bookstoreRepository.deleteById(id);
         return new CreateResponse<>(id);
     }

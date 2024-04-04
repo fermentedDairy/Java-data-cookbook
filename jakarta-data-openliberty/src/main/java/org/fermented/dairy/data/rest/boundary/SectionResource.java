@@ -54,7 +54,7 @@ public class SectionResource {
 
     @GET
     public List<SectionRto> getSections(){
-        try (Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
+        try (final Stream<Section> sections = sectionRepository.findByBookstoreId(bookstoreId)) {
             return sections.map(section -> sectionMapper.toRto(section,
                     bookstoreMapper.toRto(bookstoreRepository.findById(bookstoreId).get()))
             ).toList();
@@ -63,7 +63,7 @@ public class SectionResource {
 
     @GET
     @Path("{sectionId}")
-    public SectionRto getSection(@PathParam("sectionId") UUID sectionId){
+    public SectionRto getSection(@PathParam("sectionId") final UUID sectionId){
         return sectionRepository
                 .findById(sectionId)
                 .filter(section -> bookstoreId.equals(section.getBookstoreId()))
@@ -74,7 +74,7 @@ public class SectionResource {
     }
 
     @POST
-    public CreateResponse<UUID> createSection(SectionRequestRto sectionRequestRto) {
+    public CreateResponse<UUID> createSection(final SectionRequestRto sectionRequestRto) {
         if (!bookstoreRepository.existsById(bookstoreId))
                 throw CANNOT_FIND_PARENT_BOOKSTORE.get();
 
@@ -90,8 +90,8 @@ public class SectionResource {
 
     @PUT
     @Path("{sectionId}")
-    public CreateResponse<UUID> updateSection( @PathParam("sectionId") UUID sectionId,
-                                               SectionRequestRto sectionRequestRto  ) {
+    public CreateResponse<UUID> updateSection(@PathParam("sectionId") final UUID sectionId,
+                                              final SectionRequestRto sectionRequestRto  ) {
             return new CreateResponse<>(
                     sectionRepository.save(
                             sectionRepository.findById(sectionId)
@@ -108,7 +108,7 @@ public class SectionResource {
 
     @DELETE
     @Path("{sectionId}")
-    public CreateResponse<UUID> deleteBookstore(@PathParam("sectionId") UUID sectionId){
+    public CreateResponse<UUID> deleteBookstore(@PathParam("sectionId") final UUID sectionId){
         sectionRepository.deleteById(sectionId);
         return new CreateResponse<>(sectionId);
     }
