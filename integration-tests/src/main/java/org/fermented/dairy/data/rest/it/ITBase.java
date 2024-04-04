@@ -31,6 +31,8 @@ public abstract class ITBase {
 
     private final List<UUIDPair> sectionIds = new ArrayList<>();
 
+    protected String healthUrl = "/health/";
+
     @AfterEach
     void cleanup(){
 
@@ -66,7 +68,7 @@ public abstract class ITBase {
             Calls to health endpoints return 200""")
     void healthEndpointReturn200() {
         when()
-                .get("/health/")
+                .get(healthUrl)
                 .then()
                 .statusCode(200);
     }

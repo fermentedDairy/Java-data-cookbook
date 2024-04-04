@@ -5,9 +5,8 @@ import org.fermented.dairy.data.rest.boundary.rto.BookstoreRto;
 import org.fermented.dairy.data.rest.entity.jpa.Bookstore;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.CDI)
+@Mapper
 public interface BookstoreMapper {
 
     @Mapping(target = "staff", ignore = true)
