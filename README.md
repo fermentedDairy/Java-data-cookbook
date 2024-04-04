@@ -8,6 +8,6 @@ and levels of abstraction. Service interaction will be through a Restful boundar
 - [ ] JDBC on Helidon SE
 - [X] Jakarta Persistence 3.1 (Jakarta EE 10) on OpenLiberty
 - [X] Jakarta Data 1.0 (Jakarta EE 11 EA) on OpenLiberty
-- [ ] Spring Data JPA 3.2.3 on Spring Boot 3.3.2
+- [X] Spring Data JPA 3.2.3 on Spring Boot 3.3.2
 - [ ] QueryDSL on OpenLiberty
 - [ ] Hibernate with Panache on Quarkus
