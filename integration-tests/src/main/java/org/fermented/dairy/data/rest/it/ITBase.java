@@ -31,7 +31,7 @@ public abstract class ITBase {
 
     private final List<UUIDPair> sectionIds = new ArrayList<>();
 
-    protected String healthUrl = "/health/";
+    protected static String healthUrl = "/health/";
 
     @AfterEach
     void cleanup(){

@@ -20,6 +20,7 @@
         <module>jakarta-data-openliberty</module>
         <module>jakarta-jpa-openliberty</module>
         <module>spring-data</module>
+        <module>quarkus-panache</module>
         <module>flyway-migrations</module>
         <module>jpa-entities</module>
         <module>integration-tests</module>
