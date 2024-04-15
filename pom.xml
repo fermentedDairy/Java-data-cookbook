@@ -21,6 +21,7 @@
         <module>jakarta-jpa-openliberty</module>
         <module>spring-data</module>
         <module>quarkus-panache</module>
+        <module>jakarta-querydsl-openliberty</module>
         <module>flyway-migrations</module>
         <module>jpa-entities</module>
         <module>integration-tests</module>

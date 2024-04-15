@@ -1,0 +1,338 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.fermented.dairy.data:jakarta-data-openliberty:war:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 178, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------< org.fermented.dairy.data:jakarta-data-openliberty >----------
+[INFO] Building jakarta-data-openliberty 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jakarta-data-openliberty ---
+[INFO] Deleting /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target
+[INFO] 
+[INFO] --- lombok:1.18.20.0:delombok (default) @ jakarta-data-openliberty ---
+[WARNING] Skipping Delombok; no source to process.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jakarta-data-openliberty ---
+[INFO] Copying 6 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ jakarta-data-openliberty ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 21 source files with javac [debug target 21] to target/classes
+[WARNING] /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/src/main/java/org/fermented/dairy/data/rest/entity/jpa/Bookstore.java:[34,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jakarta-data-openliberty ---
+[INFO] skip non existing resourceDirectory /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ jakarta-data-openliberty ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug target 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.2:test (default-test) @ jakarta-data-openliberty ---
+[INFO] 
+[INFO] --- war:3.3.2:war (default-war) @ jakarta-data-openliberty ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [jakarta-data-openliberty] in [/mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/jakarta-data-openliberty]
+[INFO] Processing war project
+[INFO] Building war: /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/jakarta-data-openliberty.war
+[INFO] 
+[INFO] --- liberty:3.10.1:create (package-server) @ jakarta-data-openliberty ---
+[INFO] CWWKM2102I: Using artifact based assembly archive : io.openliberty.beta:openliberty-runtime:null:24.0.0.3-beta:zip.
+[INFO] CWWKM2102I: Using installDirectory : /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp.
+[INFO] CWWKM2102I: Using serverName : jakarta-data-openliberty.
+[INFO] CWWKM2102I: Using serverDirectory : /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty.
+[INFO] Installing assembly...
+[INFO] Expanding: /home/edward-cheesman/.m2/repository/io/openliberty/beta/openliberty-runtime/24.0.0.3-beta/openliberty-runtime-24.0.0.3-beta.zip into /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty
+[INFO] CWWKM2143I: Server jakarta-data-openliberty does not exist. Now creating...
+[INFO] CWWKM2001I: Invoke command is [/mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/bin/server, create, jakarta-data-openliberty].
+[INFO] 
+[INFO] Server jakarta-data-openliberty created.
+[INFO] CWWKM2129I: Server jakarta-data-openliberty has been created at /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty.
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty
+[INFO] CWWKM2144I: Update server configuration file server.xml from /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/src/main/liberty/config/server.xml.
+[INFO] CWWKM2144I: Update server configuration file bootstrap.properties from inlined configuration.
+[INFO] Adding transitive dependency with scope: runtime and GAV: org.checkerframework:checker-qual:3.42.0
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file postgresql-42.7.2.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/postgresql-42.7.2.jar.
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file checker-qual-3.42.0.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/checker-qual-3.42.0.jar.
+[INFO] CWWKM2185I: The liberty-maven-plugin configuration parameter "appsDirectory" value defaults to "apps".
+[INFO] 
+[INFO] --- liberty:3.10.1:install-feature (package-server) @ jakarta-data-openliberty ---
+[WARNING] Features that are not included with the beta runtime cannot be installed. Features that are included with the beta runtime can be enabled by adding them to your server.xml file.
+[INFO] 
+[INFO] --- liberty:3.10.1:deploy (package-server) @ jakarta-data-openliberty ---
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty
+[INFO] /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/bootstrap.properties file deleted before processing plugin configuration.
+[INFO] CWWKM2144I: Update server configuration file server.xml from /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/src/main/liberty/config/server.xml.
+[INFO] CWWKM2144I: Update server configuration file bootstrap.properties from inlined configuration.
+[INFO] Adding transitive dependency with scope: runtime and GAV: org.checkerframework:checker-qual:3.42.0
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file postgresql-42.7.2.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/postgresql-42.7.2.jar.
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file checker-qual-3.42.0.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/checker-qual-3.42.0.jar.
+[INFO] CWWKM2185I: The liberty-maven-plugin configuration parameter "appsDirectory" value defaults to "apps".
+[INFO] Application configuration is found in server.xml : jakarta-data-openliberty.war
+[INFO] CWWKM2160I: Installing application jakarta-data-openliberty.war.xml.
+[INFO] 
+[INFO] --- liberty:3.10.1:package (package-server) @ jakarta-data-openliberty ---
+[INFO] CWWKM2102I: Using artifact based assembly archive : io.openliberty.beta:openliberty-runtime:null:24.0.0.3-beta:zip.
+[INFO] CWWKM2102I: Using installDirectory : /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp.
+[INFO] CWWKM2102I: Using serverName : jakarta-data-openliberty.
+[INFO] CWWKM2102I: Using serverDirectory : /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty.
+[INFO] CWWKM2112I: Re-using previously installed assembly.
+[INFO] CWWKM2134I: Packaging server jakarta-data-openliberty.
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty
+[INFO] /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/bootstrap.properties file deleted before processing plugin configuration.
+[INFO] CWWKM2144I: Update server configuration file server.xml from /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/src/main/liberty/config/server.xml.
+[INFO] CWWKM2144I: Update server configuration file bootstrap.properties from inlined configuration.
+[INFO] Adding transitive dependency with scope: runtime and GAV: org.checkerframework:checker-qual:3.42.0
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file postgresql-42.7.2.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/postgresql-42.7.2.jar.
+[INFO] Copying 1 file to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc
+[INFO] copyDependencies copied file checker-qual-3.42.0.jar to location /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/usr/servers/jakarta-data-openliberty/jdbc/checker-qual-3.42.0.jar.
+[INFO] CWWKM2136I: Package file location is /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/jakarta-data-openliberty.jar.
+[INFO] CWWKM2001I: Invoke command is [/mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/liberty/wlp/bin/server, package, jakarta-data-openliberty, --archive=/mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/jakarta-data-openliberty.jar, --include=runnable].
+[INFO] 
+[INFO] Packaging server jakarta-data-openliberty.
+[INFO] Server jakarta-data-openliberty package complete in /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/jakarta-data-openliberty.jar.
+[INFO] 
+[INFO] --- failsafe:3.1.2:integration-test (default) @ jakarta-data-openliberty ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.fermented.dairy.data.rest.it.RestApplicationIT
+[INFO] Using ApplicationEnvironment class: org.microshed.testing.testcontainers.config.TestcontainersConfiguration
+[INFO] Found exposed ports: [9080/tcp]
+[INFO] Automatically selecting default HTTP port: 9080
+[INFO] Using ServerAdapter: org.microshed.testing.testcontainers.ApplicationContainer.DefaultServerAdapter
+[INFO] Starting 2 container(s) in parallel for class org.fermented.dairy.data.rest.it.RestApplicationIT
+[INFO]   postgres:16.2
+[INFO]   testcontainers/mpapp-tbrsshkdkj:latest
+[INFO] ApplicationContainer[testcontainers/mpapp-tbrsshkdkj:latest] has exposed ports:
+[INFO]   9080 --> 32794
+[ApplicationContainer] Extracting files to /root/wlpExtract/jakarta-data-openliberty_95077977389868/wlp
+[ApplicationContainer] Successfully extracted all product files.
+[ApplicationContainer] A Java runtime environment installation is being used. The server will run in a separate Java virtual machine.
+[ApplicationContainer] /root/wlpExtract/jakarta-data-openliberty_95077977389868/wlp/bin/server run jakarta-data-openliberty
+[ApplicationContainer] 
+[ApplicationContainer] WARNING: Unknown module: jdk.management.agent specified to --add-exports
+[ApplicationContainer] WARNING: Unknown module: jdk.attach specified to --add-exports
+[ApplicationContainer] Launching jakarta-data-openliberty (Open Liberty 24.0.0.3-beta/wlp-1.0.86.cl240220240212-1928) on Eclipse OpenJ9 VM, version 21.0.2+13-LTS (en_US)
+[ApplicationContainer] CWWKE0953W: This version of Open Liberty is an unsupported early release version.
+[ApplicationContainer] [AUDIT   ] CWWKE0001I: The server jakarta-data-openliberty has been launched.
+[ApplicationContainer] [AUDIT   ] CWWKZ0058I: Monitoring dropins for applications.
+[ApplicationContainer] [AUDIT   ] CWWKT0016I: Web application available (default_host): http://localhost:9080/openapi/ui/
+[ApplicationContainer] [AUDIT   ] CWWKT0016I: Web application available (default_host): http://localhost:9080/health/
+[ApplicationContainer] [AUDIT   ] CWWKT0016I: Web application available (default_host): http://localhost:9080/openapi/
+[ApplicationContainer] [AUDIT   ] CWWKZ0022W: Application jakarta-data-openliberty has not started in 30.012 seconds.
+[ApplicationContainer] [AUDIT   ] CWWKT0016I: Web application available (default_host): http://localhost:9080/
+[ApplicationContainer] [AUDIT   ] CWWKF0012I: The server installed the following features: [cdi-4.0, data-1.0, jdbc-4.2, jndi-1.0, json-1.0, jsonb-3.0, jsonp-2.1, mpConfig-3.0, mpHealth-4.0, mpOpenAPI-3.1, persistence-3.1, persistenceContainer-3.1, restfulWS-3.1, restfulWSClient-3.1].
+[ApplicationContainer] [AUDIT   ] CWWKF0011I: The jakarta-data-openliberty server is ready to run a smarter planet. The jakarta-data-openliberty server started in 66.666 seconds.
+[ApplicationContainer] [ERROR   ] Unable to resolve location classpath:db/callback (ClassLoader: com.ibm.ws.classloading.internal.ThreadContextClassLoader@8eb5e339) On WebSphere an empty file named flyway.location must be present on the classpath location for WebSphere to find it!
+[ApplicationContainer] [ERROR   ] SRVE0283E: Exception caught while initializing context: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[ApplicationContainer] SQL State  : 08001
+[ApplicationContainer] Error Code : 0
+[ApplicationContainer] Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] 
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:72)
+[ApplicationContainer] 	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:134)
+[ApplicationContainer] 	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+[ApplicationContainer] 	at org.fermented.dairy.data.rest.entity.flyway.FlywayMigrator.postConstruct(FlywayMigrator.java:20)
+[ApplicationContainer] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+[ApplicationContainer] 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[ApplicationContainer] 	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+[ApplicationContainer] 	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+[ApplicationContainer] 	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+[ApplicationContainer] 	at jakarta.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:142)
+[ApplicationContainer] 	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.fireEvent(ObserverNotifier.java:177)
+[ApplicationContainer] 	at org.jboss.weld.bootstrap.BeanDeploymentModule.fireEvent(BeanDeploymentModule.java:93)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.HttpContextLifecycle.fireEventForApplicationScope(HttpContextLifecycle.java:174)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.HttpContextLifecycle.contextInitialized(HttpContextLifecycle.java:151)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.WeldInitialListener.contextInitialized(WeldInitialListener.java:99)
+[ApplicationContainer] 	at com.ibm.ws.cdi.web.factories.Weld50InitialListener.contextInitialized(Weld50InitialListener.java:41)
+[ApplicationContainer] 	at [internal classes]
+[ApplicationContainer] Caused by: java.sql.SQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+[ApplicationContainer] 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+[ApplicationContainer] 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+[ApplicationContainer] 	at org.postgresql.Driver.makeConnection(Driver.java:446)
+[ApplicationContainer] 	at org.postgresql.Driver.connect(Driver.java:298)
+[ApplicationContainer] 	at java.sql.DriverManager.getConnection(Unknown Source)
+[ApplicationContainer] 	at java.sql.DriverManager.getConnection(Unknown Source)
+[ApplicationContainer] 	at org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:104)
+[ApplicationContainer] 	at org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:88)
+[ApplicationContainer] 	at org.postgresql.ds.PGConnectionPoolDataSource.getPooledConnection(PGConnectionPoolDataSource.java:61)
+[ApplicationContainer] 	at com.ibm.ws.rsadapter.impl.DatabaseHelper$1.run(DatabaseHelper.java:1516)
+[ApplicationContainer] 	at [internal classes]
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+[ApplicationContainer] 	... 23 more
+[ApplicationContainer] Caused by: java.net.ConnectException: Connection refused
+[ApplicationContainer] 	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+[ApplicationContainer] 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+[ApplicationContainer] 	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+[ApplicationContainer] 	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+[ApplicationContainer] 	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+[ApplicationContainer] 	at java.base/java.net.Socket.connect(Unknown Source)
+[ApplicationContainer] 	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+[ApplicationContainer] 	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+[ApplicationContainer] 	... 35 more
+[ApplicationContainer] 
+[ApplicationContainer] [AUDIT   ] CWWKZ0012I: The application jakarta-data-openliberty was not started.
+[ApplicationContainer] [AUDIT   ] CWWKT0017I: Web application removed (default_host): http://localhost:9080/
+[ApplicationContainer] [ERROR   ] SRVE0265E: Error occured while notifying listeners of web application start: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[ApplicationContainer] SQL State  : 08001
+[ApplicationContainer] Error Code : 0
+[ApplicationContainer] Message    : Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] 
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:72)
+[ApplicationContainer] 	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:134)
+[ApplicationContainer] 	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+[ApplicationContainer] 	at org.fermented.dairy.data.rest.entity.flyway.FlywayMigrator.postConstruct(FlywayMigrator.java:20)
+[ApplicationContainer] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+[ApplicationContainer] 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[ApplicationContainer] 	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+[ApplicationContainer] 	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+[ApplicationContainer] 	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+[ApplicationContainer] 	at jakarta.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:142)
+[ApplicationContainer] 	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+[ApplicationContainer] 	at org.jboss.weld.event.ObserverNotifier.fireEvent(ObserverNotifier.java:177)
+[ApplicationContainer] 	at org.jboss.weld.bootstrap.BeanDeploymentModule.fireEvent(BeanDeploymentModule.java:93)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.HttpContextLifecycle.fireEventForApplicationScope(HttpContextLifecycle.java:174)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.HttpContextLifecycle.contextInitialized(HttpContextLifecycle.java:151)
+[ApplicationContainer] 	at org.jboss.weld.module.web.servlet.WeldInitialListener.contextInitialized(WeldInitialListener.java:99)
+[ApplicationContainer] 	at com.ibm.ws.cdi.web.factories.Weld50InitialListener.contextInitialized(Weld50InitialListener.java:41)
+[ApplicationContainer] 	at [internal classes]
+[ApplicationContainer] Caused by: java.sql.SQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. DSRA0010E: SQL State = 08001, Error Code = 0
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+[ApplicationContainer] 	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+[ApplicationContainer] 	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+[ApplicationContainer] 	at org.postgresql.Driver.makeConnection(Driver.java:446)
+[ApplicationContainer] 	at org.postgresql.Driver.connect(Driver.java:298)
+[ApplicationContainer] 	at java.sql.DriverManager.getConnection(Unknown Source)
+[ApplicationContainer] 	at java.sql.DriverManager.getConnection(Unknown Source)
+[ApplicationContainer] 	at org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:104)
+[ApplicationContainer] 	at org.postgresql.ds.common.BaseDataSource.getConnection(BaseDataSource.java:88)
+[ApplicationContainer] 	at org.postgresql.ds.PGConnectionPoolDataSource.getPooledConnection(PGConnectionPoolDataSource.java:61)
+[ApplicationContainer] 	at com.ibm.ws.rsadapter.impl.DatabaseHelper$1.run(DatabaseHelper.java:1516)
+[ApplicationContainer] 	at [internal classes]
+[ApplicationContainer] 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+[ApplicationContainer] 	... 23 more
+[ApplicationContainer] Caused by: java.net.ConnectException: Connection refused
+[ApplicationContainer] 	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+[ApplicationContainer] 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source)
+[ApplicationContainer] 	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(Unknown Source)
+[ApplicationContainer] 	at java.base/sun.nio.ch.NioSocketImpl.connect(Unknown Source)
+[ApplicationContainer] 	at java.base/java.net.SocksSocketImpl.connect(Unknown Source)
+[ApplicationContainer] 	at java.base/java.net.Socket.connect(Unknown Source)
+[ApplicationContainer] 	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+[ApplicationContainer] 	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+[ApplicationContainer] 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+[ApplicationContainer] 	... 35 more
+[ApplicationContainer] 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 161.9 s <<< FAILURE! -- in org.fermented.dairy.data.rest.it.RestApplicationIT
+[ERROR] org.fermented.dairy.data.rest.it.RestApplicationIT -- Time elapsed: 161.9 s <<< ERROR!
+java.util.concurrent.CompletionException: org.testcontainers.containers.ContainerLaunchException: Container startup failed for image testcontainers/mpapp-tbrsshkdkj:latest
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:791)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.testcontainers.containers.ContainerLaunchException: Container startup failed for image testcontainers/mpapp-tbrsshkdkj:latest
+	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:359)
+	at org.microshed.testing.testcontainers.ApplicationContainer.doStart(ApplicationContainer.java:314)
+	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:334)
+	at java.base/java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:787)
+	... 4 more
+Caused by: org.rnorth.ducttape.RetryCountExceededException: Retry limit hit with exception
+	at org.rnorth.ducttape.unreliables.Unreliables.retryUntilSuccess(Unreliables.java:88)
+	at org.testcontainers.containers.GenericContainer.doStart(GenericContainer.java:344)
+	... 7 more
+Caused by: org.testcontainers.containers.ContainerLaunchException: Could not create/start container
+	at org.testcontainers.containers.GenericContainer.tryStart(GenericContainer.java:564)
+	at org.testcontainers.containers.GenericContainer.lambda$doStart$0(GenericContainer.java:354)
+	at org.rnorth.ducttape.unreliables.Unreliables.retryUntilSuccess(Unreliables.java:81)
+	... 8 more
+Caused by: org.testcontainers.containers.ContainerLaunchException: Timed out waiting for URL to be accessible (http://localhost:32794/health/ready should return HTTP 200)
+	at org.testcontainers.containers.wait.strategy.HttpWaitStrategy.waitUntilReady(HttpWaitStrategy.java:320)
+	at org.testcontainers.containers.wait.strategy.AbstractWaitStrategy.waitUntilReady(AbstractWaitStrategy.java:52)
+	at org.testcontainers.containers.GenericContainer.waitUntilContainerStarted(GenericContainer.java:977)
+	at org.testcontainers.containers.GenericContainer.tryStart(GenericContainer.java:501)
+	... 10 more
+Caused by: org.rnorth.ducttape.TimeoutException: Timeout waiting for result with exception
+	at org.rnorth.ducttape.unreliables.Unreliables.retryUntilSuccess(Unreliables.java:54)
+	at org.testcontainers.containers.wait.strategy.HttpWaitStrategy.waitUntilReady(HttpWaitStrategy.java:252)
+	... 13 more
+Caused by: java.lang.RuntimeException: java.net.SocketException: Unexpected end of file from server
+	at org.testcontainers.containers.wait.strategy.HttpWaitStrategy.lambda$null$6(HttpWaitStrategy.java:312)
+	at org.rnorth.ducttape.ratelimits.RateLimiter.doWhenReady(RateLimiter.java:27)
+	at org.testcontainers.containers.wait.strategy.HttpWaitStrategy.lambda$waitUntilReady$7(HttpWaitStrategy.java:257)
+	at org.rnorth.ducttape.unreliables.Unreliables.lambda$retryUntilSuccess$0(Unreliables.java:43)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	... 3 more
+Caused by: java.net.SocketException: Unexpected end of file from server
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:955)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:759)
+	at java.base/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:952)
+	at java.base/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:759)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1690)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1599)
+	at java.base/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:531)
+	at org.testcontainers.containers.wait.strategy.HttpWaitStrategy.lambda$null$6(HttpWaitStrategy.java:276)
+	... 7 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   RestApplicationIT » Completion org.testcontainers.containers.ContainerLaunchException: Container startup failed for image testcontainers/mpapp-tbrsshkdkj:latest
+[INFO] 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- failsafe:3.1.2:verify (default) @ jakarta-data-openliberty ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  04:47 min
+[INFO] Finished at: 2024-03-21T20:18:48+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-failsafe-plugin:3.1.2:verify (default) on project jakarta-data-openliberty: 
+[ERROR] 
+[ERROR] Please refer to /mnt/Shared/IdeaProjects/java-data-cookbook/jakarta-data-openliberty/target/failsafe-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
