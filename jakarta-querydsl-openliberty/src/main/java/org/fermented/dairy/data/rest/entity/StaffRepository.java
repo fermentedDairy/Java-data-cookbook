@@ -16,17 +16,27 @@ import java.util.stream.Stream;
 @Transactional
 public class StaffRepository extends AbstractRepository<Staff, UUID> {
 
-    @PersistenceContext(name = "jpa-unit")
+    private static final QStaff staff = QStaff.staff;
+
     private EntityManager em;
+    private JPAQueryFactory queryFactory;
+
+    @PersistenceContext(name = "jpa-unit")
+    public void setEntityManager(final EntityManager em) {
+        this.em = em;
+        queryFactory = new JPAQueryFactory(em);
+    }
 
     @Override
     public Optional<Staff> findById(final UUID id) {
-        return findById(Staff.class, id);
+        return Optional.ofNullable(
+                queryFactory.selectFrom(staff).fetchOne()
+        );
     }
 
     @Override
     public Stream<Staff> findAll() {
-        return em.createQuery("SELECT S from Staff s", Staff.class).getResultStream();
+        return queryFactory.selectFrom(staff).stream();
     }
 
     @Override
@@ -36,26 +46,16 @@ public class StaffRepository extends AbstractRepository<Staff, UUID> {
 
     @Override
     public void deleteById(final UUID id) {
-        final QStaff staff = QStaff.staff;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         queryFactory.delete(staff).where(staff.id.eq(id)).execute();
     }
 
     @Override
     public boolean existsById(final UUID id) {
-        final QStaff staff = QStaff.staff;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         return !queryFactory.selectFrom(staff).where(staff.id.eq(id)).fetch().isEmpty();
     }
 
     public Stream<Staff> findByBookstoreId(final UUID bookstoreId) {
-        return em.createQuery(
-                    """
-                            SELECT S from Staff S where S.bookstore.id = :bookstoreId
-                    """,
-                    Staff.class)
-                .setParameter("bookstoreId", bookstoreId)
-                .getResultStream();
+        return queryFactory.selectFrom(staff).where(staff.bookstore.id.eq(bookstoreId)).stream();
     }
 
     @Override

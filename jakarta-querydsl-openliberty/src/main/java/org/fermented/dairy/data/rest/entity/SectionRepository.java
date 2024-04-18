@@ -16,17 +16,25 @@ import java.util.stream.Stream;
 @Transactional
 public class SectionRepository extends AbstractRepository<Section, UUID> {
 
-    @PersistenceContext(name = "jpa-unit")
+    private static final QSection section = QSection.section;
+
     private EntityManager em;
+    private JPAQueryFactory queryFactory;
+
+    @PersistenceContext(name = "jpa-unit")
+    public void setEntityManager(final EntityManager em) {
+        this.em = em;
+        queryFactory = new JPAQueryFactory(em);
+    }
 
     @Override
     public Optional<Section> findById(final UUID id) {
-        return findById(Section.class, id);
+        return Optional.ofNullable(queryFactory.selectFrom(section).where(section.id.eq(id)).fetchOne());
     }
 
     @Override
     public Stream<Section> findAll() {
-        return em.createQuery("SELECT S from Section S", Section.class).getResultStream();
+        return queryFactory.selectFrom(section).stream();
     }
 
     @Override
@@ -36,22 +44,16 @@ public class SectionRepository extends AbstractRepository<Section, UUID> {
 
     @Override
     public void deleteById(final UUID id) {
-        final QSection section = QSection.section;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         queryFactory.delete(section).where(section.id.eq(id)).execute();
     }
 
     @Override
     public boolean existsById(final UUID id) {
-        final QSection section = QSection.section;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         return !queryFactory.selectFrom(section).where(section.id.eq(id)).fetch().isEmpty();
     }
 
     public Stream<Section> findByBookstoreId(final UUID bookstoreId) {
-        return em.createQuery("SELECT S from Section S where S.bookstoreId = :bookstoreId", Section.class)
-                .setParameter("bookstoreId", bookstoreId)
-                .getResultStream();
+        return queryFactory.selectFrom(section).where(section.bookstoreId.eq(bookstoreId)).stream();
     }
 
     @Override

@@ -16,17 +16,27 @@ import java.util.stream.Stream;
 @Transactional
 public class BookstoreRepository extends AbstractRepository<Bookstore, UUID> {
 
-    @PersistenceContext(name = "jpa-unit")
+    private static final QBookstore bookstore = QBookstore.bookstore;
+
     private EntityManager em;
+    private JPAQueryFactory queryFactory;
+
+    @PersistenceContext(name = "jpa-unit")
+    public void setEntityManager(final EntityManager em) {
+        this.em = em;
+        queryFactory = new JPAQueryFactory(em);
+    }
 
     @Override
     public Optional<Bookstore> findById(final UUID id) {
-        return findById(Bookstore.class, id);
+        return Optional.ofNullable(
+                queryFactory.selectFrom(bookstore).where(bookstore.id.eq(id)).fetchOne()
+        );
     }
 
     @Override
     public Stream<Bookstore> findAll() {
-        return em.createQuery("SELECT B from Bookstore B", Bookstore.class).getResultStream();
+        return queryFactory.selectFrom(bookstore).stream();
     }
 
     @Override
@@ -36,15 +46,11 @@ public class BookstoreRepository extends AbstractRepository<Bookstore, UUID> {
 
     @Override
     public void deleteById(final UUID id) {
-        final QBookstore bookstore = QBookstore.bookstore;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         queryFactory.delete(bookstore).where(bookstore.id.eq(id)).execute();
     }
 
     @Override
     public boolean existsById(final UUID id) {
-        final QBookstore bookstore = QBookstore.bookstore;
-        final JPAQueryFactory queryFactory = new JPAQueryFactory(em);
         return queryFactory.selectFrom(bookstore).where(bookstore.id.eq(id)).stream().findFirst().isPresent();
     }
 
